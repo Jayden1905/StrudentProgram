@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" styleClass="parent" stylesheets="@../../../CSS/application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controller">
+    <left>
+        <AnchorPane prefHeight="200.0" prefWidth="45.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+            <children>
+                <FontAwesomeIconView fill="#4c4c4e" glyphName="BARS" layoutX="14.0" layoutY="31.0" size="1.5em" AnchorPane.leftAnchor="14.5" AnchorPane.rightAnchor="14.5" AnchorPane.topAnchor="15.0" />
+                <VBox alignment="TOP_CENTER" layoutX="4.0" layoutY="230.0">
+                    <children>
+                        <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#navigation" styleClass="sidebar_active">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="HOME" size="1.5em" styleClass="sidebar_active" />
+                            </graphic>
+                            <padding>
+                                <Insets bottom="5.0" />
+                            </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                        </Button>
+                        <Button fx:id="ulBtn" mnemonicParsing="false" onAction="#navigation">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="LIST_UL" size="1.5em" styleClass="sidebar_opt" />
+                            </graphic>
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                        </Button>
+                        <Button fx:id="imageBtn" mnemonicParsing="false" onAction="#navigation">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="IMAGE" size="1.5em" styleClass="sidebar_opt" />
+                            </graphic>
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                        </Button>
+                        <Button fx:id="gearBtn" mnemonicParsing="false" onAction="#navigation">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="GEAR" size="1.5em" styleClass="sidebar_opt" />
+                            </graphic>
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                        </Button>
+                    </children>
+                </VBox>
+                <Circle fill="WHITE" layoutX="23.0" layoutY="571.0" radius="15.0" stroke="#c1c1c1" strokeType="INSIDE" />
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane fx:id="content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #f3f3f3;" BorderPane.alignment="CENTER" />
+    </center>
+</BorderPane>

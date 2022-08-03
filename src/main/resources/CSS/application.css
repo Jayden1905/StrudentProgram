@@ -1,0 +1,48 @@
+.button {
+  -fx-border-color: transparent;
+  -fx-border-width: 0;
+  -fx-background-radius: 0;
+  -fx-background-color: transparent;
+}
+
+.button:focused {
+    -fx-border-color: transparent, black;
+    -fx-border-radius: 0, 0;
+}
+
+.button_active {
+    -fx-fill: #2b49b3;
+}
+
+.button:pressed {
+    -fx-text-fill: white;
+}
+
+.parent {
+  -fx-background-color: #ffffff;
+  -fx-background-radius: 30px;
+}
+
+.sidebar {
+  -fx-background-color: #ffffff;
+  -fx-background-radius: 30px, 30px, 0px, 0px;
+}
+
+.sidebar_opt {
+  -fx-fill: #c1c1c1;
+}
+
+.sidebar_opt:hover {
+  -fx-fill: #4c4c4e;
+}
+
+.sidebar_active {
+  -fx-fill: #2b49b3 !IMPORTANT;
+}
+
+.pane {
+  -fx-background-color: #ffffff;
+  -fx-border-color: #c1c1c1;
+  -fx-background-radius: 0px 0px 30px 30px;
+  -fx-border-radius: 0px 0px 30px 30px;
+}
