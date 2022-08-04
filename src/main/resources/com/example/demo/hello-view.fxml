@@ -40,7 +40,7 @@
                         </Button>
                         <Button fx:id="imageBtn" mnemonicParsing="false" onAction="#navigation">
                             <graphic>
-                                <FontAwesomeIconView glyphName="IMAGE" size="1.5em" styleClass="sidebar_opt" />
+                                <FontAwesomeIconView glyphName="BOOK" size="1.5em" styleClass="sidebar_opt" />
                             </graphic>
                             <VBox.margin>
                                 <Insets bottom="5.0" top="5.0" />

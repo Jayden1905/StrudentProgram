@@ -8,5 +8,7 @@ module com.example.demo {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires de.jensd.fx.glyphs.fontawesome;
+
     exports com.example.demo;
+    exports com.example.demo.Utilities;
 }

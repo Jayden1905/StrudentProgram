@@ -8,8 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class OrderingSystem extends javafx.application.Application {
-    double x, y;
+public class GradeTracker extends javafx.application.Application {
 
     public static void main(String[] args) throws IOException {
         launch();
@@ -20,21 +19,12 @@ public class OrderingSystem extends javafx.application.Application {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
         Scene scene = new Scene(root);
 
-        root.setOnMousePressed(event -> {
-            x = event.getSceneX();
-            y = event.getSceneY();
-        });
-
-        root.setOnMouseDragged(event -> {
-            primaryStage.setX(event.getSceneX() - x);
-            primaryStage.setY(event.getSceneX() - y);
-        });
-
         String css = "CSS/application.css";
         scene.getStylesheets().add(css);
 
-        primaryStage.setTitle("Hello!");
+        primaryStage.setTitle("Grade Tracker");
         primaryStage.setScene(scene);
+        primaryStage.resizableProperty().setValue(false);
         primaryStage.show();
     }
 }

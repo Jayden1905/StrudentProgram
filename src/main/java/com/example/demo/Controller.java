@@ -38,7 +38,7 @@ public class Controller implements Initializable {
         }
 
         if (Objects.equals(button.getId(), "imageBtn")) {
-            changeContentScreen("image.fxml");
+            changeContentScreen("modules.fxml");
 
             removeActiveClass();
             homeBtn.getGraphic().getStyleClass().add("sidebar_opt");
@@ -77,14 +77,3 @@ public class Controller implements Initializable {
     }
 }
 
-class Module {
-
-}
-
-class Assessment {
-
-}
-
-class Student {
-
-}

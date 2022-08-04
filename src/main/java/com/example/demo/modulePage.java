@@ -1,4 +1,4 @@
 package com.example.demo;
 
-public class image {
+public class modulePage {
 }
