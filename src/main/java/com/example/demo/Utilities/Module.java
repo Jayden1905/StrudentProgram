@@ -73,4 +73,5 @@ public class Module {
                 " " + this.getCreditUnits() +
                 " " + this.getAssessments();
     }
+
 }
