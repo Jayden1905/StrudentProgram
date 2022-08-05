@@ -16,6 +16,8 @@ import java.util.ResourceBundle;
 public class Home implements Initializable {
     private final String[] genderList = {"Select your gender", "Male", "Female", "Others"};
 
+    public Student selectedStudent;
+
     @FXML
     public Button studentFormSave;
     @FXML
@@ -37,10 +39,10 @@ public class Home implements Initializable {
     @FXML
     public TableColumn<Student, Integer> tableStudentAge;
     public ComboBox<String> stuGender;
-    ObservableList<Student> studentData = FXCollections.observableArrayList(studentList);
+    @FXML
+    public Button StudentFormUpdate;
 
-    public Home() throws IOException {
-    }
+    ObservableList<Student> studentData = FXCollections.observableArrayList(studentList);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -55,6 +57,8 @@ public class Home implements Initializable {
 
         studentList.add(new Student("Jayden", 19, "123456", "Male", "Diploma In Information Technology"));
         studentList.add(new Student("Alice", 22, "3245982", "Female", "Diploma In Business Management"));
+
+        studentTable.setItems(studentData);
 
         for (Student stu : studentList) {
             studentTable.getItems().add(stu);
@@ -86,6 +90,46 @@ public class Home implements Initializable {
             studentTable.getItems().add(stu);
         }
 
+        resetStudentForm();
+    }
+
+    public void editData(Student stu) {
+        selectedStudent = stu;
+        studentName.setText(selectedStudent.getStudentName());
+        studentAge.setText(String.valueOf(selectedStudent.getStudentAge()));
+        stuGender.setValue(selectedStudent.getStudentGender());
+        studentID.setText(selectedStudent.getStudentID());
+        studentProgram.setText(selectedStudent.getStudentProgram());
+    }
+
+    public Student updateData(Student stu) {
+        selectedStudent = stu;
+        selectedStudent.setStudentName(studentName.getText());
+        selectedStudent.setStudentAge(Integer.parseInt(studentAge.getText()));
+        selectedStudent.setStudentGender(stuGender.getValue());
+        selectedStudent.setStudentID(studentID.getText());
+        selectedStudent.setStudentProgram(studentProgram.getText());
+        return stu;
+    }
+
+    public void insertStudent() {
+        editData(studentTable.getSelectionModel().getSelectedItem());
+    }
+
+    public void updateStudent() {
+        studentTable.getItems().add(studentTable.getSelectionModel().getSelectedIndex(),
+                updateData(studentTable.getSelectionModel().getSelectedItem()));
+        studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedIndex() - 1);
+        studentTable.refresh();
+        studentList.add(updateData(studentTable.getSelectionModel().getSelectedItem()));
+        studentList.remove(studentTable.getSelectionModel().getSelectedIndex());
+        resetStudentForm();
+    }
+
+    public void deleteStudent() {
+        studentList.remove(studentTable.getSelectionModel().getSelectedItem());
+        studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedIndex());
+        studentTable.refresh();
         resetStudentForm();
     }
 
