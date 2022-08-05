@@ -27,9 +27,9 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                         </Button>
-                        <Button fx:id="ulBtn" mnemonicParsing="false" onAction="#navigation">
+                        <Button fx:id="imageBtn" mnemonicParsing="false" onAction="#navigation">
                             <graphic>
-                                <FontAwesomeIconView glyphName="LIST_UL" size="1.5em" styleClass="sidebar_opt" />
+                                <FontAwesomeIconView glyphName="BOOK" size="1.5em" styleClass="sidebar_opt" />
                             </graphic>
                             <VBox.margin>
                                 <Insets bottom="5.0" top="5.0" />
@@ -38,9 +38,9 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                         </Button>
-                        <Button fx:id="imageBtn" mnemonicParsing="false" onAction="#navigation">
+                        <Button fx:id="ulBtn" mnemonicParsing="false" onAction="#navigation">
                             <graphic>
-                                <FontAwesomeIconView glyphName="BOOK" size="1.5em" styleClass="sidebar_opt" />
+                                <FontAwesomeIconView glyphName="LIST_UL" size="1.5em" styleClass="sidebar_opt" />
                             </graphic>
                             <VBox.margin>
                                 <Insets bottom="5.0" top="5.0" />

@@ -86,17 +86,4 @@ public class Student {
                 " " + getStudentProgram() +
                 " " + getModules();
     }
-
-//    public JSONObject toJsonObject() {
-//        JSONObject jsonObject = new JSONObject();
-//        jsonObject.put("Student name", this.getStudentName());
-//        jsonObject.put("Student age", this.getStudentAge());
-//        jsonObject.put("Student gender", this.getStudentGender());
-//        jsonObject.put("Student ID", this.getStudentID());
-//        jsonObject.put("Student's Program", this.getStudentProgram());
-//        jsonObject.put("Modules", this.getModules());
-//
-//        return jsonObject;
-//    }
-
 }
