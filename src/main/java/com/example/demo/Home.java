@@ -3,10 +3,13 @@ package com.example.demo;
 import com.example.demo.Utilities.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,16 +19,13 @@ import java.util.ResourceBundle;
 
 public class Home implements Initializable {
     private final String[] genderList = {"Select your gender", "Male", "Female", "Others"};
-
     public Student selectedStudent;
-
     @FXML
     public Button studentFormSave;
     @FXML
     public TextField studentName, studentAge, studentID, studentProgram;
     public String name, id, program, gender;
     public int age;
-    public ArrayList<Student> studentList = new ArrayList<Student>();
     @FXML
     public TableView<Student> studentTable;
     @FXML
@@ -36,14 +36,14 @@ public class Home implements Initializable {
     public TableColumn<Student, String> tableStudentGender;
     @FXML
     public TableColumn<Student, String> tableStudentProgram;
-
     @FXML
     public TableColumn<Student, Integer> tableStudentAge;
     public ComboBox<String> stuGender;
     @FXML
     public Button StudentFormUpdate;
+    public Student studentArray = new Student();
 
-    ObservableList<Student> studentData = FXCollections.observableArrayList(studentList);
+    public ObservableList<Student> studentData = FXCollections.observableArrayList(studentArray.getStudentList());
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -56,14 +56,7 @@ public class Home implements Initializable {
         tableStudentGender.setCellValueFactory(new PropertyValueFactory<>("studentGender"));
         tableStudentProgram.setCellValueFactory(new PropertyValueFactory<>("studentProgram"));
 
-        studentList.add(new Student("Jayden", 19, "123456", "Male", "Diploma In Information Technology"));
-        studentList.add(new Student("Alice", 22, "3245982", "Female", "Diploma In Business Management"));
-        studentList.add(new Student("Jordan", 20, "1945739", "Male", "Diploma In Robotic Engineering"));
-        studentList.add(new Student("Nike", 23, "3452678", "Female", "Diploma In Tourism"));
-
-        studentTable.setItems(studentData);
-
-        for (Student stu : studentList) {
+        for (Student stu : studentArray.getStudentList()) {
             studentTable.getItems().add(stu);
         }
     }
@@ -90,24 +83,24 @@ public class Home implements Initializable {
                 gender = stuGender.getValue();
                 program = studentProgram.getText();
 
-                studentList.add(new Student(name, age, id, gender, program));
+                studentArray.getStudentList().add(new Student(name, age, id, gender, program));
                 tempStudents.add(new Student(name, age, id, gender, program));
 
                 for (Student stu : tempStudents) {
                     studentTable.getItems().add(stu);
                 }
 
-                alertMessae("information", "SUCCESS", "Added the student",
+                alertMessage("information", "SUCCESS", "Added the student",
                         "The student is successfully added to the database!");
 
                 resetStudentForm();
             } catch (NumberFormatException error) {
-                alertMessae("error", "ERROR", "Incorrect Input",
+                alertMessage("error", "ERROR", "Incorrect Input",
                         "Please check your inputs again!");
                 studentAge.setText("");
             }
         } else {
-            alertMessae("error", "ERROR", "Input Requires",
+            alertMessage("error", "ERROR", "Input Requires",
                     "You need to enter all requested information.");
         }
     }
@@ -138,7 +131,7 @@ public class Home implements Initializable {
         if (studentTable.getSelectionModel().getSelectedItem() != null) {
             editData(studentTable.getSelectionModel().getSelectedItem());
         } else {
-            alertMessae("warning", "WARNING", "Selection requires!",
+            alertMessage("warning", "WARNING", "Selection requires!",
                     "You need to select the data from the table.");
         }
     }
@@ -150,12 +143,12 @@ public class Home implements Initializable {
             studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedIndex() - 1);
             studentTable.refresh();
 
-            studentList.add(updateData(studentTable.getSelectionModel().getSelectedItem()));
-            studentList.remove(studentTable.getSelectionModel().getSelectedIndex());
+            studentArray.getStudentList().add(updateData(studentTable.getSelectionModel().getSelectedItem()));
+            studentArray.getStudentList().remove(studentTable.getSelectionModel().getSelectedIndex());
 
             resetStudentForm();
         } else {
-            alertMessae("warning", "WARNING", "Can't find any Information to update!",
+            alertMessage("warning", "WARNING", "Can't find any Information to update!",
                     "You need to select and edit the data first to update them.");
         }
     }
@@ -167,7 +160,7 @@ public class Home implements Initializable {
         alert.setContentText("Do you want to delete it?");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
-            studentList.remove(studentTable.getSelectionModel().getSelectedItem());
+            studentArray.getStudentList().remove(studentTable.getSelectionModel().getSelectedItem());
 
             studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedIndex());
             studentTable.refresh();
@@ -176,7 +169,7 @@ public class Home implements Initializable {
         }
     }
 
-    public void alertMessae(String type, String title, String headerText, String contentText) {
+    public void alertMessage(String type, String title, String headerText, String contentText) {
         Alert alert = null;
 
         if (type.equalsIgnoreCase("error")) {
@@ -192,5 +185,18 @@ public class Home implements Initializable {
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
         alert.show();
+    }
+
+    public void logOut(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText("You are about to logout");
+        alert.setContentText("Do you want to save before existing?");
+
+        if (alert.showAndWait().get() == ButtonType.OK) {
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.close();
+        }
     }
 }

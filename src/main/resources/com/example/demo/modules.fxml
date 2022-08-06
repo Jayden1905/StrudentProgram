@@ -1,15 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
+<?import java.net.URL?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="979.0" xmlns="http://javafx.com/javafx/18"
             fx:controller="com.example.demo.modulePage">
     <children>
-        <Label layoutX="359.0" layoutY="256.0" text="Modules">
-            <font>
-                <Font size="72.0"/>
-            </font>
-        </Label>
+        <HBox layoutX="14.0" layoutY="74.0" spacing="10.0">
+            <children>
+                <Button fx:id="addModule" mnemonicParsing="false" prefHeight="31.0" prefWidth="181.0"
+                        styleClass="btn-success" text=" Add New Module">
+                    <graphic>
+                        <FontAwesomeIconView fill="#4c4c4e" glyphName="PLUS" size="1.5em"/>
+                    </graphic>
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Button>
+                <Separator orientation="VERTICAL"/>
+                <Button fx:id="deleteModule" mnemonicParsing="false" prefHeight="31.0" prefWidth="184.0"
+                        styleClass="btn-danger" text="Delete The Module">
+                    <graphic>
+                        <FontAwesomeIconView fill="#4c4c4e" glyphName="TRASH" size="1.5em"/>
+                    </graphic>
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+        <HBox layoutX="14.0" layoutY="29.0" spacing="10.0">
+            <children>
+                <ComboBox fx:id="studentNameBox" prefHeight="31.0" prefWidth="185.0" promptText="Student Name"
+                          styleClass="btn-primary"/>
+                <Separator orientation="VERTICAL"/>
+                <ComboBox fx:id="studentIDBox" prefHeight="31.0" prefWidth="181.0" promptText="Student ID"
+                          styleClass="btn-primary"/>
+            </children>
+        </HBox>
+        <Button layoutX="949.0" mnemonicParsing="false" onAction="#logOut">
+            <graphic>
+                <FontAwesomeIconView glyphName="CLOSE" size="1.5em"/>
+            </graphic>
+        </Button>
+        <TableView layoutX="14.0" layoutY="120.0" prefHeight="471.0" prefWidth="955.0">
+            <columns>
+                <TableColumn prefWidth="176.0" text="Name"/>
+                <TableColumn minWidth="6.0" prefWidth="142.0" text="ID"/>
+                <TableColumn prefWidth="150.0" text="Module Name"/>
+                <TableColumn prefWidth="151.0" text="Module ID"/>
+                <TableColumn prefWidth="187.0" text="Description"/>
+                <TableColumn prefWidth="148.0" text="Credit Units"/>
+            </columns>
+        </TableView>
     </children>
+    <stylesheets>
+        <URL value="@../../../CSS/application.css"/>
+        <URL value="@../../../CSS/bootstrap.css"/>
+    </stylesheets>
 </AnchorPane>

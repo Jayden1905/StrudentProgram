@@ -5,6 +5,7 @@ package com.example.demo.Utilities;
 import java.util.ArrayList;
 
 public class Student {
+    public ArrayList<Student> studentList = new ArrayList<Student>();
     private ArrayList<Module> modules = new ArrayList<>();
     private String name;
     private int age;
@@ -20,6 +21,13 @@ public class Student {
         this.setStudentProgram(program);
     }
 
+    public Student() {
+        this.getStudentList().add(new Student("Jayden", 19, "123456", "Male", "Diploma In Information Technology"));
+        this.getStudentList().add(new Student("Alice", 22, "3245982", "Female", "Diploma In Business Management"));
+        this.getStudentList().add(new Student("Jordan", 20, "1945739", "Male", "Diploma In Robotic Engineering"));
+        this.getStudentList().add(new Student("Nike", 23, "3452678", "Female", "Diploma In Tourism"));
+    }
+
     public Student(String name, int age, String studentID, String gender, String program, ArrayList<Module> moduleList) {
         this.setStudentName(name);
         this.setStudentAge(age);
@@ -27,6 +35,14 @@ public class Student {
         this.setStudentGender(gender);
         this.setStudentProgram(program);
         this.setModules(moduleList);
+    }
+
+    public ArrayList<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(ArrayList<Student> studentList) {
+        this.studentList = studentList;
     }
 
     public String getStudentName() {
