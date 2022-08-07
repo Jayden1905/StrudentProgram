@@ -2,12 +2,14 @@ package com.example.demo.Utilities;
 
 import java.util.ArrayList;
 
-public class Module {
+public class Module extends Student {
+    //    public String studentName = getStudentName();
+//    public String studentID = getStudentID();
+    public ArrayList<Module> moduleList = new ArrayList<>();
     private String name;
     private String moduleCode;
     private String description;
     private int creditUnits;
-
     private ArrayList<Assessment> assessments = new ArrayList<>();
 
     public Module(String name, String moduleCode, String description, int creditUnits) {
@@ -15,6 +17,9 @@ public class Module {
         this.setModuleCode(moduleCode);
         this.setDescription(description);
         this.setCreditUnits(creditUnits);
+    }
+
+    public Module(Module module) {
     }
 
     public Module(String name, String moduleCode, String description, int creditUnits, ArrayList<Assessment> assessments) {
@@ -25,8 +30,17 @@ public class Module {
         this.setAssessments(assessments);
     }
 
+
+    public ArrayList<Module> getModuleList() {
+        return moduleList;
+    }
+
+    public void setModuleList(ArrayList<Module> moduleList) {
+        this.moduleList = moduleList;
+    }
+
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -34,7 +48,7 @@ public class Module {
     }
 
     public String getModuleCode() {
-        return moduleCode;
+        return this.moduleCode;
     }
 
     public void setModuleCode(String moduleCode) {
@@ -42,7 +56,7 @@ public class Module {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -50,7 +64,7 @@ public class Module {
     }
 
     public int getCreditUnits() {
-        return creditUnits;
+        return this.creditUnits;
     }
 
     public void setCreditUnits(int creditUnits) {
@@ -58,7 +72,7 @@ public class Module {
     }
 
     public ArrayList<Assessment> getAssessments() {
-        return assessments;
+        return this.assessments;
     }
 
     public void setAssessments(ArrayList<Assessment> assessments) {

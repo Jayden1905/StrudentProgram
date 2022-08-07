@@ -62,7 +62,7 @@
         </VBox>
         <HBox alignment="CENTER" layoutX="10.0" layoutY="485.0" prefHeight="25.0" prefWidth="256.0" spacing="10.0">
             <children>
-                <Button fx:id="studentFormSave" mnemonicParsing="false" onAction="#addStudent" prefHeight="25.0" prefWidth="59.0" styleClass="btn-success" text="Add" HBox.hgrow="ALWAYS" />
+                <Button fx:id="studentFormSave" mnemonicParsing="false" onAction="#addStudent" prefHeight="25.0" prefWidth="59.0" styleClass="btn-primary" text="Add" HBox.hgrow="ALWAYS" />
                 <Button fx:id="studentFormInsert" mnemonicParsing="false" onAction="#insertStudent" prefHeight="25.0" prefWidth="53.0" styleClass="btn-warning" text="Edit" HBox.hgrow="ALWAYS" />
                 <Button fx:id="StudentFormUpdate" mnemonicParsing="false" onAction="#updateStudent" styleClass="btn-success" text="Update" HBox.hgrow="ALWAYS" />
                 <Button fx:id="studentFormDelete" mnemonicParsing="false" onAction="#deleteStudent" styleClass="btn-danger" text="Delete" HBox.hgrow="ALWAYS" />

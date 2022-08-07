@@ -1,64 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.control.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Font?>
-<?import java.net.URL?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="979.0" xmlns="http://javafx.com/javafx/18"
-            fx:controller="com.example.demo.modulePage">
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="979.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.modulePage">
     <children>
-        <HBox layoutX="14.0" layoutY="74.0" spacing="10.0">
+        <HBox layoutX="310.0" layoutY="77.0" prefHeight="31.0" prefWidth="292.0" spacing="10.0">
             <children>
-                <Button fx:id="addModule" mnemonicParsing="false" prefHeight="31.0" prefWidth="181.0"
-                        styleClass="btn-success" text=" Add New Module">
-                    <graphic>
-                        <FontAwesomeIconView fill="#4c4c4e" glyphName="PLUS" size="1.5em"/>
-                    </graphic>
-                    <font>
-                        <Font size="14.0"/>
-                    </font>
-                </Button>
-                <Separator orientation="VERTICAL"/>
-                <Button fx:id="deleteModule" mnemonicParsing="false" prefHeight="31.0" prefWidth="184.0"
-                        styleClass="btn-danger" text="Delete The Module">
-                    <graphic>
-                        <FontAwesomeIconView fill="#4c4c4e" glyphName="TRASH" size="1.5em"/>
-                    </graphic>
-                    <font>
-                        <Font size="14.0"/>
-                    </font>
-                </Button>
+                <ComboBox fx:id="studentNameBox" prefHeight="31.0" prefWidth="185.0" promptText="Student Name" styleClass="btn-primary" />
+                <Separator orientation="VERTICAL" />
+                <ComboBox fx:id="studentIDBox" prefHeight="31.0" prefWidth="181.0" promptText="Student ID" styleClass="btn-primary" />
             </children>
         </HBox>
-        <HBox layoutX="14.0" layoutY="29.0" spacing="10.0">
-            <children>
-                <ComboBox fx:id="studentNameBox" prefHeight="31.0" prefWidth="185.0" promptText="Student Name"
-                          styleClass="btn-primary"/>
-                <Separator orientation="VERTICAL"/>
-                <ComboBox fx:id="studentIDBox" prefHeight="31.0" prefWidth="181.0" promptText="Student ID"
-                          styleClass="btn-primary"/>
-            </children>
-        </HBox>
+      <VBox layoutX="36.0" layoutY="122.0" spacing="40.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="28.0" prefWidth="248.0" style="-fx-border-color: #337ab7#337ab7; -fx-border-width: 0px 0px 2px 0px;">
+               <children>
+                  <FontAwesomeIconView glyphName="BOOK" size="1.5em" styleClass="text-primary">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <TextField fx:id="moduleName" prefHeight="26.0" prefWidth="178.0" promptText="Module Name" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="28.0" prefWidth="248.0" style="-fx-border-color: #337ab7#337ab7; -fx-border-width: 0px 0px 2px 0px;">
+               <children>
+                  <FontAwesomeIconView glyphName="CODE" size="1.5em" styleClass="text-primary">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <TextField fx:id="moduleCode" prefHeight="26.0" prefWidth="178.0" promptText="Module Code" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <TextArea fx:id="moduleDescription" prefHeight="100.0" prefWidth="245.0" promptText="moduleDescription" />
+            <HBox alignment="CENTER" prefHeight="28.0" prefWidth="248.0" style="-fx-border-color: #337ab7#337ab7; -fx-border-width: 0px 0px 2px 0px;">
+               <children>
+                  <FontAwesomeIconView glyphName="SORT_AMOUNT_DESC" size="1.5em" styleClass="text-primary">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <TextField fx:id="creditUnits" prefHeight="26.0" prefWidth="178.0" promptText="Credit Units" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
         <Button layoutX="949.0" mnemonicParsing="false" onAction="#logOut">
             <graphic>
-                <FontAwesomeIconView glyphName="CLOSE" size="1.5em"/>
+                <FontAwesomeIconView glyphName="CLOSE" size="1.5em" />
             </graphic>
         </Button>
-        <TableView layoutX="14.0" layoutY="120.0" prefHeight="471.0" prefWidth="955.0">
+        <TableView fx:id="moduleTable" layoutX="310.0" layoutY="122.0" prefHeight="384.0" prefWidth="655.0">
             <columns>
-                <TableColumn prefWidth="176.0" text="Name"/>
-                <TableColumn minWidth="6.0" prefWidth="142.0" text="ID"/>
-                <TableColumn prefWidth="150.0" text="Module Name"/>
-                <TableColumn prefWidth="151.0" text="Module ID"/>
-                <TableColumn prefWidth="187.0" text="Description"/>
-                <TableColumn prefWidth="148.0" text="Credit Units"/>
+                <TableColumn fx:id="tableModuleName" prefWidth="209.0" text="Module Name" />
+                <TableColumn fx:id="tableModuleCode" prefWidth="118.0" text="Module Code" />
+                <TableColumn fx:id="tableModuleDescription" prefWidth="190.0" text="Description" />
+                <TableColumn fx:id="tableCreditUnits" prefWidth="136.0" text="Credit Units" />
             </columns>
         </TableView>
+      <HBox layoutX="29.0" layoutY="481.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onClickAddModule" prefHeight="25.0" prefWidth="58.0" styleClass="btn-primary" text="Add" />
+            <Button mnemonicParsing="false" onAction="#editModule" prefHeight="25.0" prefWidth="58.0" styleClass="btn-warning" text="Edit" />
+            <Button mnemonicParsing="false" onAction="#updateModule" prefHeight="25.0" prefWidth="60.0" styleClass="btn-success" text="Update" />
+            <Button mnemonicParsing="false" onAction="#deleteModule" prefHeight="25.0" prefWidth="57.0" styleClass="btn-danger" text="Delete" />
+         </children>
+      </HBox>
     </children>
     <stylesheets>
-        <URL value="@../../../CSS/application.css"/>
-        <URL value="@../../../CSS/bootstrap.css"/>
+        <URL value="@../../../CSS/application.css" />
+        <URL value="@../../../CSS/bootstrap.css" />
     </stylesheets>
 </AnchorPane>

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Student {
     public ArrayList<Student> studentList = new ArrayList<Student>();
-    private ArrayList<Module> modules = new ArrayList<>();
+    private ArrayList<Module> moduleList = new ArrayList<>();
     private String name;
     private int age;
     private String studentID;
@@ -22,10 +22,10 @@ public class Student {
     }
 
     public Student() {
-        this.getStudentList().add(new Student("Jayden", 19, "123456", "Male", "Diploma In Information Technology"));
-        this.getStudentList().add(new Student("Alice", 22, "3245982", "Female", "Diploma In Business Management"));
-        this.getStudentList().add(new Student("Jordan", 20, "1945739", "Male", "Diploma In Robotic Engineering"));
-        this.getStudentList().add(new Student("Nike", 23, "3452678", "Female", "Diploma In Tourism"));
+        this.getStudentList().add(new Student("Jayden", 19, "123456", "Male", "Diploma In Information Technology", moduleList));
+        this.getStudentList().add(new Student("Alice", 22, "3245982", "Female", "Diploma In Business Management", moduleList));
+        this.getStudentList().add(new Student("Jordan", 20, "1945739", "Male", "Diploma In Robotic Engineering", moduleList));
+        this.getStudentList().add(new Student("Nike", 23, "3452678", "Female", "Diploma In Tourism", moduleList));
     }
 
     public Student(String name, int age, String studentID, String gender, String program, ArrayList<Module> moduleList) {
@@ -34,7 +34,17 @@ public class Student {
         this.setStudentID(studentID);
         this.setStudentGender(gender);
         this.setStudentProgram(program);
-        this.setModules(moduleList);
+        this.setModuleList(moduleList);
+    }
+
+    public ArrayList<Module> getModuleList() {
+        return moduleList;
+    }
+
+    public void setModuleList(ArrayList<Module> moduleList) {
+        ArrayList<Module> temp;
+        temp = moduleList;
+        this.moduleList = temp;
     }
 
     public ArrayList<Student> getStudentList() {
@@ -85,14 +95,6 @@ public class Student {
         this.program = program;
     }
 
-    public ArrayList<Module> getModules() {
-        return modules;
-    }
-
-    public void setModules(ArrayList<Module> modules) {
-        this.modules = modules;
-    }
-
     @Override
     public String toString() {
         return getStudentName() +
@@ -100,6 +102,6 @@ public class Student {
                 " " + getStudentID() +
                 " " + getStudentGender() +
                 " " + getStudentProgram() +
-                " " + getModules();
+                " " + getModuleList();
     }
 }
