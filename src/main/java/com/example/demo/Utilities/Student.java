@@ -13,6 +13,8 @@ public class Student {
     private String studentID;
     private String gender;
     private String program;
+    private char grade;
+    private double gpa;
 
     public Student(String name, int age, String studentID, String gender, String program) {
         this.setStudentName(name);
@@ -36,6 +38,22 @@ public class Student {
         this.setStudentGender(gender);
         this.setStudentProgram(program);
         this.setModuleList(moduleList);
+    }
+
+    public char getGrade() {
+        return grade;
+    }
+
+    public void setGrade(char grade) {
+        this.grade = grade;
+    }
+
+    public double getGpa() {
+        return gpa;
+    }
+
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
     }
 
     public ArrayList<Assessment> getAssessmentList() {

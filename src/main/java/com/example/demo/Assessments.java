@@ -83,7 +83,6 @@ public class Assessments implements Initializable {
         createAssessments("Jayden", "123456", "Programming Fundamental", "ITDS 004",
                 "CA4", "Quiz", 90, 100, 20);
 
-
         tableAssessmentName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableAssessmentDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         tableMarks.setCellValueFactory(new PropertyValueFactory<>("marks"));

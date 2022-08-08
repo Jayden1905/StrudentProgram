@@ -18,16 +18,16 @@
     <children>
         <HBox layoutX="672.0" layoutY="89.0" prefHeight="31.0" prefWidth="303.0" spacing="10.0">
             <children>
-                <ComboBox fx:id="moduleNameBox" prefHeight="31.0" prefWidth="185.0" promptText="Module Name" styleClass="btn-primary" />
+                <ComboBox fx:id="moduleNameBox" prefHeight="31.0" prefWidth="185.0" promptText="Module Name" />
                 <Separator orientation="VERTICAL" />
-                <ComboBox fx:id="moduleIDBox" prefHeight="31.0" prefWidth="181.0" promptText="Module ID" styleClass="btn-primary" />
+                <ComboBox fx:id="moduleIDBox" prefHeight="31.0" prefWidth="181.0" promptText="Module ID" />
             </children>
         </HBox>
         <HBox layoutX="320.0" layoutY="89.0" prefHeight="31.0" prefWidth="329.0" spacing="10.0">
             <children>
-                <ComboBox fx:id="studentNameBox" prefHeight="31.0" prefWidth="181.0" promptText="Student Name" styleClass="btn-primary" />
+                <ComboBox fx:id="studentNameBox" prefHeight="31.0" prefWidth="181.0" promptText="Student Name" />
                 <Separator orientation="VERTICAL" />
-                <ComboBox fx:id="studentIDBox" prefHeight="31.0" prefWidth="181.0" promptText="Student ID" styleClass="btn-primary" />
+                <ComboBox fx:id="studentIDBox" prefHeight="31.0" prefWidth="181.0" promptText="Student ID" />
             </children>
         </HBox>
         <VBox layoutX="46.0" layoutY="132.0" spacing="35.0">

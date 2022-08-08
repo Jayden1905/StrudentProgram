@@ -56,7 +56,7 @@ public class Controller implements Initializable {
         }
 
         if (Objects.equals(button.getId(), "gearBtn")) {
-            changeContentScreen("Gear.fxml");
+            changeContentScreen("Summary.fxml");
 
             removeActiveClass();
             homeBtn.getGraphic().getStyleClass().add("sidebar_opt");

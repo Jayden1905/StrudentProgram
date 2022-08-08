@@ -8,9 +8,6 @@ public class Assessment extends Module {
     private double marks;
     private double totalMarks;
     private double weightAge;
-    private double finalMark;
-    private char grade;
-    private double gpa;
     private ArrayList<Assessment> assessmentList = new ArrayList<>();
 
     public Assessment(String name, String description, double marks, double totalMarks, double weightAge) {
@@ -23,30 +20,6 @@ public class Assessment extends Module {
     }
 
     public Assessment() {
-    }
-
-    public double getFinalMark() {
-        return finalMark;
-    }
-
-    public void setFinalMark(double finalMark) {
-        this.finalMark = finalMark;
-    }
-
-    public char getGrade() {
-        return grade;
-    }
-
-    public void setGrade(char grade) {
-        this.grade = grade;
-    }
-
-    public double getGpa() {
-        return gpa;
-    }
-
-    public void setGpa(double gpa) {
-        this.gpa = gpa;
     }
 
     public ArrayList<Assessment> getAssessmentList() {

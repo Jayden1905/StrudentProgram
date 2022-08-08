@@ -18,9 +18,9 @@
     <children>
         <HBox layoutX="310.0" layoutY="77.0" prefHeight="31.0" prefWidth="292.0" spacing="10.0">
             <children>
-                <ComboBox fx:id="studentNameBox" prefHeight="31.0" prefWidth="185.0" promptText="Student Name" styleClass="btn-primary" />
+                <ComboBox fx:id="studentNameBox" prefHeight="31.0" prefWidth="185.0" promptText="Student Name" />
                 <Separator orientation="VERTICAL" />
-                <ComboBox fx:id="studentIDBox" prefHeight="31.0" prefWidth="181.0" promptText="Student ID" styleClass="btn-primary" />
+                <ComboBox fx:id="studentIDBox" prefHeight="31.0" prefWidth="181.0" promptText="Student ID" />
             </children>
         </HBox>
       <VBox layoutX="36.0" layoutY="122.0" spacing="40.0">
