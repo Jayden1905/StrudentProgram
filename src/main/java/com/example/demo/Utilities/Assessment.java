@@ -1,15 +1,64 @@
 package com.example.demo.Utilities;
 
-public class Assessment {
+import java.util.ArrayList;
+
+public class Assessment extends Module {
     private String name;
     private String description;
-    private Module module;
     private double marks;
     private double totalMarks;
     private double weightAge;
+    private double finalMark;
+    private char grade;
+    private double gpa;
+    private ArrayList<Assessment> assessmentList = new ArrayList<>();
+
+    public Assessment(String name, String description, double marks, double totalMarks, double weightAge) {
+        this();
+        this.name = name;
+        this.description = description;
+        this.marks = marks;
+        this.totalMarks = totalMarks;
+        this.weightAge = weightAge;
+    }
+
+    public Assessment() {
+    }
+
+    public double getFinalMark() {
+        return finalMark;
+    }
+
+    public void setFinalMark(double finalMark) {
+        this.finalMark = finalMark;
+    }
+
+    public char getGrade() {
+        return grade;
+    }
+
+    public void setGrade(char grade) {
+        this.grade = grade;
+    }
+
+    public double getGpa() {
+        return gpa;
+    }
+
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
+
+    public ArrayList<Assessment> getAssessmentList() {
+        return assessmentList;
+    }
+
+    public void setAssessmentList(ArrayList<Assessment> assessmentList) {
+        this.assessmentList = assessmentList;
+    }
 
     public double getWeightMarks() {
-        return marks / totalMarks * weightAge;
+        return this.marks / this.totalMarks * this.weightAge;
     }
 
     public String getName() {
@@ -44,19 +93,20 @@ public class Assessment {
         this.totalMarks = totalMarks;
     }
 
-    public Module getModule() {
-        return module;
-    }
-
-    public void setModule(Module module) {
-        this.module = module;
-    }
-
     public double getWeightAge() {
         return weightAge;
     }
 
     public void setWeightAge(double weightAge) {
         this.weightAge = weightAge;
+    }
+
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", marks=" + marks +
+                ", totalMarks=" + totalMarks +
+                ", weightAge=" + weightAge;
     }
 }

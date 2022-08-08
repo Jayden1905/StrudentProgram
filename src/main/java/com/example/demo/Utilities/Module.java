@@ -3,31 +3,32 @@ package com.example.demo.Utilities;
 import java.util.ArrayList;
 
 public class Module extends Student {
-    //    public String studentName = getStudentName();
-//    public String studentID = getStudentID();
     public ArrayList<Module> moduleList = new ArrayList<>();
+    private ArrayList<Assessment> assessmentList = new ArrayList<>();
     private String name;
     private String moduleCode;
     private String description;
     private int creditUnits;
-    private ArrayList<Assessment> assessments = new ArrayList<>();
+    private Assessment assessment;
 
     public Module(String name, String moduleCode, String description, int creditUnits) {
-        this.setName(name);
+        this.setModuleName(name);
         this.setModuleCode(moduleCode);
         this.setDescription(description);
         this.setCreditUnits(creditUnits);
     }
 
-    public Module(Module module) {
-    }
 
-    public Module(String name, String moduleCode, String description, int creditUnits, ArrayList<Assessment> assessments) {
-        this.setName(name);
+    public Module(String name, String moduleCode, String description, int creditUnits, ArrayList<Assessment> assessmentList) {
+        this.setModuleName(name);
         this.setModuleCode(moduleCode);
         this.setDescription(description);
         this.setCreditUnits(creditUnits);
-        this.setAssessments(assessments);
+        this.setAssessmentList(assessmentList);
+    }
+
+    public Module() {
+
     }
 
 
@@ -39,11 +40,11 @@ public class Module extends Student {
         this.moduleList = moduleList;
     }
 
-    public String getName() {
+    public String getModuleName() {
         return this.name;
     }
 
-    public void setName(String name) {
+    public void setModuleName(String name) {
         this.name = name;
     }
 
@@ -71,21 +72,28 @@ public class Module extends Student {
         this.creditUnits = creditUnits;
     }
 
-    public ArrayList<Assessment> getAssessments() {
-        return this.assessments;
+    public ArrayList<Assessment> getAssessmentList() {
+        return this.assessmentList;
     }
 
-    public void setAssessments(ArrayList<Assessment> assessments) {
-        this.assessments = assessments;
+    public void setAssessmentList(ArrayList<Assessment> assessmentList) {
+        this.assessmentList = assessmentList;
+    }
+
+    public Assessment getAssessment() {
+        return this.assessment;
+    }
+
+    public void setAssessment(Assessment assessment) {
+        this.getAssessmentList().add(assessment);
     }
 
     @Override
     public String toString() {
-        return this.getName() +
+        return this.getModuleName() +
                 " " + this.getModuleCode() +
                 " " + this.getDescription() +
-                " " + this.getCreditUnits() +
-                " " + this.getAssessments();
+                " " + this.getCreditUnits() + "\n" +
+                " " + this.getAssessmentList();
     }
-
 }

@@ -60,7 +60,7 @@ public class modulePage implements Initializable {
         createModule("Jordan", "1945739", "Communication Networking", "ITDS 003", "Networking", 75);
         createModule("Nike", "3452678", "Business Stats in Python", "ITDS 002", "Maths", 75);
 
-        tableModuleName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tableModuleName.setCellValueFactory(new PropertyValueFactory<>("moduleName"));
         tableModuleCode.setCellValueFactory(new PropertyValueFactory<>("moduleCode"));
         tableModuleDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         tableCreditUnits.setCellValueFactory(new PropertyValueFactory<>("creditUnits"));
@@ -88,6 +88,7 @@ public class modulePage implements Initializable {
 
                 studentArray.getStudentList().get(i).setModuleList(tempList);
                 studentArray.getModuleList().add(tempModule);
+
                 break;
             }
         }
@@ -125,6 +126,10 @@ public class modulePage implements Initializable {
                     for (Module module : tempList) {
                         moduleTable.getItems().add(module);
                     }
+
+                    studentArray.getStudentList().get(i).setModule(tempModule);
+                    studentArray.getModuleList().add(tempModule);
+
                     moduleTable.refresh();
                 }
             }
@@ -140,7 +145,7 @@ public class modulePage implements Initializable {
 
     public void editData(Module module) {
         selectedModule = module;
-        moduleName.setText(selectedModule.getName());
+        moduleName.setText(selectedModule.getModuleName());
         moduleCode.setText(String.valueOf(selectedModule.getModuleCode()));
         moduleDescription.setText(selectedModule.getDescription());
         creditUnits.setText(String.valueOf(selectedModule.getCreditUnits()));
@@ -160,7 +165,7 @@ public class modulePage implements Initializable {
     public Module updateData(Module module) {
         selectedModule = module;
 
-        selectedModule.setName(moduleName.getText());
+        selectedModule.setModuleName(moduleName.getText());
         selectedModule.setModuleCode(moduleCode.getText());
         selectedModule.setDescription(moduleDescription.getText());
         selectedModule.setCreditUnits(Integer.parseInt(creditUnits.getText()));
@@ -250,5 +255,4 @@ public class modulePage implements Initializable {
         alert.setContentText(contentText);
         alert.show();
     }
-
 }

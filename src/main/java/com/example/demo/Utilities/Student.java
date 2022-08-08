@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Student {
     public ArrayList<Student> studentList = new ArrayList<Student>();
     private ArrayList<Module> moduleList = new ArrayList<>();
+    private ArrayList<Assessment> assessmentList = new ArrayList<>();
     private String name;
     private int age;
     private String studentID;
@@ -37,14 +38,28 @@ public class Student {
         this.setModuleList(moduleList);
     }
 
+    public ArrayList<Assessment> getAssessmentList() {
+        return this.assessmentList;
+    }
+
+    public void setAssessmentList(ArrayList<Assessment> assessmentList) {
+        this.assessmentList = assessmentList;
+    }
+
+    public void setAssessment(Assessment assessment) {
+        this.assessmentList.add(assessment);
+    }
+
     public ArrayList<Module> getModuleList() {
-        return moduleList;
+        return this.moduleList;
     }
 
     public void setModuleList(ArrayList<Module> moduleList) {
-        ArrayList<Module> temp;
-        temp = moduleList;
-        this.moduleList = temp;
+        this.moduleList = moduleList;
+    }
+
+    public void setModule(Module module) {
+        this.moduleList.add(module);
     }
 
     public ArrayList<Student> getStudentList() {
@@ -101,7 +116,7 @@ public class Student {
                 " " + getStudentAge() +
                 " " + getStudentID() +
                 " " + getStudentGender() +
-                " " + getStudentProgram() +
+                " " + getStudentProgram() + "\n" +
                 " " + getModuleList();
     }
 }

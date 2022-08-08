@@ -45,7 +45,6 @@
                   <TextField fx:id="moduleCode" prefHeight="26.0" prefWidth="178.0" promptText="Module Code" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
-            <TextArea fx:id="moduleDescription" prefHeight="100.0" prefWidth="245.0" promptText="moduleDescription" />
             <HBox alignment="CENTER" prefHeight="28.0" prefWidth="248.0" style="-fx-border-color: #337ab7#337ab7; -fx-border-width: 0px 0px 2px 0px;">
                <children>
                   <FontAwesomeIconView glyphName="SORT_AMOUNT_DESC" size="1.5em" styleClass="text-primary">
@@ -56,6 +55,7 @@
                   <TextField fx:id="creditUnits" prefHeight="26.0" prefWidth="178.0" promptText="Credit Units" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
+            <TextArea fx:id="moduleDescription" prefHeight="100.0" prefWidth="245.0" promptText="moduleDescription" />
          </children>
       </VBox>
         <Button layoutX="949.0" mnemonicParsing="false" onAction="#logOut">
