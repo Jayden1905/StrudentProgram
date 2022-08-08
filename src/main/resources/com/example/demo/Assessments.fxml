@@ -75,10 +75,10 @@
                 <TextArea fx:id="assessmentDescription" prefHeight="85.0" prefWidth="248.0" promptText="Assessment Description" />
             </children>
         </VBox>
-        <Button layoutX="949.0" layoutY="-1.0" mnemonicParsing="false" onAction="#logOut">
-            <graphic>
+        <Button layoutX="949.0" mnemonicParsing="false" onAction="#logOut">
+         <graphic>
                 <FontAwesomeIconView glyphName="CLOSE" size="1.5em" />
-            </graphic>
+         </graphic>
         </Button>
         <TableView fx:id="assessmentTable" layoutX="320.0" layoutY="132.0" prefHeight="384.0" prefWidth="655.0">
             <columns>

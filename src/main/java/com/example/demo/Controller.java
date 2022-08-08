@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Circle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,12 +15,12 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-
     @FXML
     public Button homeBtn, ulBtn, imageBtn, gearBtn;
-
     @FXML
     public AnchorPane content;
+    @FXML
+    public Circle myCircle;
 
     public void navigation(ActionEvent event) throws IOException {
         Button button = (Button) event.getSource();

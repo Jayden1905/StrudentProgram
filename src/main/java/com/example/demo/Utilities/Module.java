@@ -96,4 +96,7 @@ public class Module extends Student {
                 " " + this.getCreditUnits() + "\n" +
                 " " + this.getAssessmentList();
     }
+
+    public void getGradePoint() {
+    }
 }

@@ -30,10 +30,10 @@ public class Summary implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        createModule("Jayden", "123456", "Programming Fundamental", "ITDS 004", "IT", 50);
-        createModule("Alice", "3245982", "Problem Solving", "ITDS 001", "Sovling problems with python", 75);
-        createModule("Jordan", "1945739", "Communication Networking", "ITDS 003", "Networking", 75);
-        createModule("Nike", "3452678", "Business Stats in Python", "ITDS 002", "Maths", 75);
+        createModule("Jayden", "123456", "Programming Fundamental", "ITDS 004", "IT", 8);
+        createModule("Alice", "3245982", "Problem Solving", "ITDS 001", "Sovling problems with python", 6);
+        createModule("Jordan", "1945739", "Communication Networking", "ITDS 003", "Networking", 5);
+        createModule("Nike", "3452678", "Business Stats in Python", "ITDS 002", "Maths", 7);
 
         createAssessments("Jayden", "123456", "Programming Fundamental", "ITDS 004",
                 "CA1", "Quz", 95, 100, 10);
@@ -60,13 +60,13 @@ public class Summary implements Initializable {
                 "CA4", "Quiz", 96, 100, 10);
 
         createAssessments("Jordan", "1945739", "Communication Networking", "ITDS 003",
-                "CA1", "Quz", 65, 100, 10);
+                "CA1", "Quz", 63, 100, 10);
 
         createAssessments("Jordan", "1945739", "Communication Networking", "ITDS 003",
-                "CA2", "Common Test", 75, 100, 40);
+                "CA2", "Common Test", 72, 100, 40);
 
         createAssessments("Jordan", "1945739", "Communication Networking", "ITDS 003",
-                "CA3", "Individual Assignment", 66, 100, 40);
+                "CA3", "Individual Assignment", 61, 100, 40);
 
         createAssessments("Jordan", "1945739", "Communication Networking", "ITDS 003",
                 "CA4", "Quiz", 71, 100, 10);
@@ -93,6 +93,8 @@ public class Summary implements Initializable {
 
     public void generateSummary() {
         double totalWeightMarks = 0;
+        double totalCreditUnits = 0;
+        double weightedGradePoint = 0;
         if (studentBox.getValue() != null) {
             for (int i = 0; i < studentArray.getStudentList().size(); i++) {
                 if (Objects.equals(studentBox.getValue(), studentArray.getStudentList().get(i).getStudentName())) {
@@ -102,9 +104,11 @@ public class Summary implements Initializable {
                         for (Assessment assessment : studentArray.getStudentList().get(i).getModuleList().get(j).getAssessmentList()) {
                             totalWeightMarks += assessment.getWeightMarks();
                         }
+                        totalCreditUnits += studentArray.getStudentList().get(i).getModuleList().get(j).getCreditUnits();
                     }
-                    grade.setText("Grade: " + showGrade(totalWeightMarks));
-                    gpa.setText("GPA: " + showGpa(totalWeightMarks));
+                    weightedGradePoint = getWeightedGradePoint(gradePoint(totalWeightMarks), totalCreditUnits);
+                    grade.setText("Grade: " + getGradePoints(totalWeightMarks));
+                    gpa.setText("GPA: " + getGPA(weightedGradePoint, totalCreditUnits));
                 }
             }
         } else {
@@ -156,24 +160,32 @@ public class Summary implements Initializable {
         }
     }
 
-    public char showGrade(double marks) {
+    public String getGradePoints(double marks) {
 
-        char grade = ' ';
-        if (marks >= 80) {
-            grade = 'A';
+        String grade;
+        if (marks >= 90) {
+            grade = "A+";
+        } else if (marks >= 80) {
+            grade = "A";
+        } else if (marks >= 75) {
+            grade = "B+";
         } else if (marks >= 70) {
-            grade = 'B';
+            grade = "B";
+        } else if (marks >= 65) {
+            grade = "C+";
         } else if (marks >= 60) {
-            grade = 'C';
+            grade = "C";
+        } else if (marks >= 55) {
+            grade = "D+";
         } else if (marks >= 50) {
-            grade = 'D';
+            grade = "D";
         } else {
-            grade = 'F';
+            grade = "F";
         }
         return grade;
     }
 
-    public double showGpa(double marks) {
+    public double gradePoint(double marks) {
         double gpa = 0;
 
         if (marks >= 90) {
@@ -227,5 +239,13 @@ public class Summary implements Initializable {
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
         alert.show();
+    }
+
+    public double getWeightedGradePoint(double gradePoints, double creditUnits) {
+        return gradePoints * creditUnits;
+    }
+
+    public double getGPA(double weightGradePoint, double creditUnits) {
+        return weightGradePoint / creditUnits;
     }
 }
